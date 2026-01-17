@@ -5,21 +5,64 @@
     font-family: Arial, sans-serif;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 18px 50px;
-    background: white;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 10;
 }
 
-.logo {
-    font-weight: bold;
+/* ================= LOGO ================= */
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    perspective: 800px;
+}
+
+/* Logo Image */
+.logo-box img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    animation: floatLogo 4s ease-in-out infinite;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+    transition: transform 0.5s ease;
+}
+
+/* Logo Text */
+.logo-box span {
     font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
     color: #000;
+    transition: transform 0.5s ease, color 0.3s ease;
 }
 
+/* 3D Hover Effect */
+.logo-box:hover img {
+    transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+}
+
+.logo-box:hover span {
+    transform: translateZ(20px);
+    color: #f2c300;
+}
+
+/* Floating Animation */
+@keyframes floatLogo {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* ================= NAV LINKS ================= */
 nav ul {
     list-style: none;
     display: flex;
@@ -30,33 +73,73 @@ nav ul li {
     cursor: pointer;
     font-weight: 600;
     color: #000;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+nav ul li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: #f2c300;
+    transition: width 0.3s ease;
+}
+
+nav ul li:hover {
+    color: #f2c300;
+}
+
+nav ul li:hover::after {
+    width: 100%;
 }
 
 nav ul li.active {
     color: #f2c300;
 }
 
-/* HERO SECTION – 3D BACKGROUND */
+/* ===== HERO SECTION – 3D BACKGROUND ===== */
 .hero {
     position: relative;
     height: 85vh;
-
-    background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
-    background-size: 110%;          /* zoom for depth */
-    background-position: center;
-    background-repeat: no-repeat;
-
     overflow: hidden;
     transform-style: preserve-3d;
-    transition: background-position 0.2s ease;
 }
 
+/* Slider */
+.hero-slider {
+    position: absolute;
+    inset: 0;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    background-size: 110%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 1s ease, transform 3s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Overlay */
 .overlay {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.4);
+    z-index: 1;
 }
 
+/* Content */
 .hero-content {
     position: absolute;
     top: 50%;
@@ -67,15 +150,21 @@ nav ul li.active {
     z-index: 2;
 }
 
+/* Text */
 .small-title {
     letter-spacing: 2px;
     font-size: 14px;
     margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
 }
 
 .hero-content h1 {
     font-size: 48px;
     font-weight: bold;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 0.2s;
 }
 
 .hero-content h1 span {
@@ -85,8 +174,12 @@ nav ul li.active {
 .tagline {
     margin: 15px 0 30px;
     font-size: 18px;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 0.4s;
 }
 
+/* Button */
 .hero-content button {
     padding: 14px 35px;
     border: none;
@@ -94,10 +187,32 @@ nav ul li.active {
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 0.6s;
 }
 
 .hero-content button:hover {
     background: #f2c300;
+}
+
+/* Animation */
+@keyframes fadeUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 32px;
+    }
 }
 
 /* ===== EXPERIENCE SECTION ===== */
@@ -310,62 +425,70 @@ nav ul li.active {
         display: none;
     }
 }
-/* ===== 3D SPLIT TEXT EFFECT (ONLY TEXT) ===== */
+/* ===== PERMANENT 3D FLOAT TEXT ===== */
+
+.split-3d {
+    perspective: 1500px;
+}
 
 .split-3d span {
     display: block;
     transform-origin: center;
-    transform: translateY(40px) translateZ(-80px) rotateX(25deg);
-    opacity: 0;
-    animation: textSplit3D 2s ease forwards; /* increased from 0.8s to 2s */
+    animation: float3D 6s ease-in-out infinite;
 }
 
-/* line-by-line delay (longer) */
-.split-3d span:nth-child(1) { animation-delay: 0.5s; }
-.split-3d span:nth-child(2) { animation-delay: 1s; }
-.split-3d span:nth-child(3) { animation-delay: 1.5s; }
-.split-3d span:nth-child(4) { animation-delay: 2s; }
+/* small stagger so lines move naturally */
+.split-3d span:nth-child(1) { animation-delay: 0s; }
+.split-3d span:nth-child(2) { animation-delay: 0.6s; }
+.split-3d span:nth-child(3) { animation-delay: 1.2s; }
+.split-3d span:nth-child(4) { animation-delay: 1.8s; }
 
-@keyframes textSplit3D {
-    to {
-        transform: translateY(0) translateZ(0) rotateX(0);
-        opacity: 1;
+@keyframes float3D {
+    0% {
+        transform: translateY(0) rotateX(0);
+    }
+    50% {
+        transform: translateY(-10px) rotateX(4deg);
+    }
+    100% {
+        transform: translateY(0) rotateX(0);
     }
 }
 
-/* ===== SPIN EFFECT FOR RIGHT CONTENT ===== */
 
-.feature {
-    perspective: 1000px;
-}
+/* ===== PERMANENT SOFT 3D DEPTH ===== */
 
 .feature h3,
 .feature p {
-    transform: rotateY(30deg) translateZ(-40px);
-    opacity: 0;
-    transition: transform 2s ease, opacity 2s ease; /* slower transition */
+    animation: softDepth 8s ease-in-out infinite;
 }
 
-/* delay for each feature (longer) */
 .feature:nth-child(1) h3,
-.feature:nth-child(1) p { transition-delay: 0.5s; }
+.feature:nth-child(1) p { animation-delay: 0s; }
 
 .feature:nth-child(2) h3,
-.feature:nth-child(2) p { transition-delay: 1s; }
+.feature:nth-child(2) p { animation-delay: 1s; }
 
 .feature:nth-child(3) h3,
-.feature:nth-child(3) p { transition-delay: 1.5s; }
+.feature:nth-child(3) p { animation-delay: 2s; }
 
 .feature:nth-child(4) h3,
-.feature:nth-child(4) p { transition-delay: 2s; }
+.feature:nth-child(4) p { animation-delay: 3s; }
 
-
-@keyframes spinIn {
-    to {
+@keyframes softDepth {
+    0% {
         transform: rotateY(0deg) translateZ(0);
         opacity: 1;
     }
+    50% {
+        transform: rotateY(6deg) translateZ(20px);
+    }
+    100% {
+        transform: rotateY(0deg) translateZ(0);
+    }
 }
+
+
 /* ================= TEAM BUILDING SECTION ================= */
 
 .team-section {
@@ -435,11 +558,62 @@ nav ul li.active {
         margin: auto;
     }
 }
-/* ===== TEAM SECTION BUTTON STYLE ===== */
+/* ===== TEAM SECTION ===== */
+.team-section {
+    padding: 100px 20px;
+    background: #fdf7ed;
+    font-family: Arial, sans-serif;
+}
+
+.team-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap; /* responsive */
+}
+
+/* LEFT TEXT */
+.team-text {
+    flex: 1 1 500px;
+    opacity: 0; /* hidden initially for animation */
+    transform: translateX(-50px); /* slide from left */
+    transition: all 0.8s ease-out;
+}
+
+.team-text.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.team-text .small-title {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #6b3b0a;
+}
+
+.team-text h1 {
+    font-size: 42px;
+    margin: 15px 0 25px;
+    line-height: 1.2;
+    color: #03180c;
+}
+
+.team-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* BUTTON */
 .team-text .btn {
     padding: 14px 32px;
-    background: #f2c300;   /* YELLOW BOX */
-    color: #000000;        /* BLACK TEXT */
+    background: #f2c300;   /* Yellow */
+    color: #000;
     font-weight: bold;
     border: none;
     border-radius: 6px;
@@ -452,11 +626,57 @@ nav ul li.active {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
+
+/* RIGHT IMAGE */
+.team-image {
+    flex: 1 1 500px;
+    overflow: hidden;
+    border-radius: 15px;
+    opacity: 0; /* hidden initially for animation */
+    transform: translateX(50px); /* slide from right */
+    transition: all 0.8s ease-out;
+}
+
+.team-image.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.team-image img {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Image hover zoom + shadow */
+.team-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .team-container {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .team-text h1 {
+        font-size: 32px;
+    }
+}
+
 /* ================= TESTIMONIALS SECTION ================= */
 
 .testimonial-section {
     padding: 120px 0;
-    background: #fbf7ef;
+    background: goldenrod;
     text-align: center;
 }
 
@@ -464,7 +684,7 @@ nav ul li.active {
     font-size: 48px;
     font-weight: 800;
     letter-spacing: 2px;
-    color: #0d2c1a;
+    color: #03180c;
     margin-bottom: 70px;
     text-align: center;
 }
@@ -490,7 +710,7 @@ nav ul li.active {
 .testimonial-content p {
     font-size: 18px;
     line-height: 1.8;
-    color: #2e4635;
+    color: #080a09;
     margin-bottom: 30px;
 }
 
@@ -530,16 +750,9 @@ nav ul li.active {
     }
 }
 
-/* FEATURE CARD SPIN ANIMATION */
-.feature h3,
-.feature p {
-    transform: rotateY(90deg) translateZ(50px);
-    opacity: 0;
-    transition: all 0.6s ease;
-    transform-style: preserve-3d;
-}
+/* ================= Testimonials Section ================= */
 .testimonials {
-    padding: 120px 0;
+    padding: 100px 20px;
     background: #fbf7ef;
     text-align: center;
     font-family: Arial, sans-serif;
@@ -549,61 +762,76 @@ nav ul li.active {
     letter-spacing: 3px;
     font-size: 14px;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .testimonials h1 {
-    font-size: 48px;
-    margin: 20px 0 80px;
+    font-size: 40px;
+    margin: 0 0 50px;
     color: #6b3b0a;
 }
 
+/* Wrapper */
 .testimonial-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;
+    gap: 35px; /* Gap between cards */
     overflow: hidden;
 }
 
+/* Track */
 .testimonial-track {
     display: flex;
-    gap: 30px;
-    transition: transform 0.6s ease;
-    max-width: 1100px;
+    gap: 35px; /* Gap between cards */
+    transition: transform 0.5s ease;
 }
 
+/* Card */
 .card {
     background: white;
-    padding: 40px 30px;
-    width: 280px;
-    border-radius: 18px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    padding: 40px 30px;   /* More breathing space */
+    width: 340px;         /* Slightly wider */
+    min-height: 260px;    /* Uniform height */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    flex-shrink: 0;
     text-align: left;
-    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Card hover effect */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+/* Stars */
 .stars {
-    color: #2ecc71;
-    margin-bottom: 15px;
+    color: #f2c300;
+    margin-bottom: 12px;
 }
 
+/* Text */
 .card p {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.7;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
+/* User info */
 .user {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .icon {
-    background: #2ecc71;
+    background: #f2c300;
     color: black;
     border-radius: 50%;
-    padding: 8px;
+    padding: 7px;
     font-size: 14px;
 }
 
@@ -617,17 +845,24 @@ nav ul li.active {
     color: gray;
 }
 
-/* ARROWS */
+/* Arrows */
 .arrow {
     background: none;
     border: none;
-    font-size: 32px;
+    font-size: 28px;
     cursor: pointer;
+    color: #6b3b0a;
+    transition: transform 0.3s ease;
 }
 
-/* DOTS */
+.arrow:hover {
+    transform: scale(1.2);
+}
+
+/* Dots */
 .dots {
-    margin-top: 40px;
+    margin-top: 30px;
+    text-align: center;
 }
 
 .dot {
@@ -636,9 +871,42 @@ nav ul li.active {
     background: #ccc;
     border-radius: 50%;
     display: inline-block;
-    margin: 0 6px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
 }
 
 .dot.active {
     background: #f2c300;
+    transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .testimonial-wrapper {
+        gap: 25px;
+    }
+    .testimonial-track {
+        gap: 25px;
+    }
+    .card {
+        width: 300px;
+        min-height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-wrapper {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .testimonial-track {
+        gap: 25px;
+    }
+    .card {
+        width: 90%;
+        min-height: auto;
+    }
+    .arrow {
+        font-size: 24px;
+    }
 }

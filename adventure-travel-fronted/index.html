@@ -9,8 +9,10 @@
 
 <!-- HEADER -->
 <header class="navbar">
-    <div class="logo">EDUVENTURES</div>
-
+    <div class="logo-box">
+        <img src="logo.png" alt="Eduventures Logo">
+        <span>EDUVENTURES</span>
+    </div>
     <nav>
         <ul>
             <li class="active">HOME</li>
@@ -25,19 +27,33 @@
 
 <!-- HERO SECTION -->
 <section class="hero">
+    <div class="hero-slider">
+        <div class="slide active"
+             style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');"></div>
+
+        <div class="slide"
+             style="background-image:url('redi.jpg');"></div>
+
+        <div class="slide"
+             style="background-image:url('boating.jpg');"></div>
+    </div>
+
     <div class="overlay"></div>
 
     <div class="hero-content">
         <p class="small-title">EDUVENTURES VENGURLA</p>
+
         <h1>
             BRINGING EDUCATION <br>
             <span>& ADVENTURE TOGETHER!</span>
         </h1>
+
         <p class="tagline">Explore. Learn. Grow.</p>
 
         <button onclick="exploreNow()">EXPLORE NOW</button>
     </div>
 </section>
+
 
 <!-- ===== EXPERIENCE SECTION (NEW ADDED) ===== -->
 <section class="experience-section">
@@ -66,7 +82,7 @@
         Join us for treks, excursions, team-building activities, and unforgettable experiences for all ages.
             </p>
 
-            <button class="btn">KNOW MORE!</button>
+            <button class="btn know-more">KNOW MORE!</button>
         </div>
       
     </div>
@@ -169,7 +185,7 @@
                 and trust.
             </p>
 
-            <button class="btn">VIEW ACTIVITIES</button>
+            <button class="btn view-activities">VIEW ACTIVITIES</button>
         </div>
 
         <!-- RIGHT IMAGE -->
@@ -180,7 +196,7 @@
     </div>
 </section>
 
-<!-- ✅ TESTIMONIALS SECTION (इथे add कर) -->
+<!-- ✅ TESTIMONIALS SECTION  -->
 <section class="testimonial-section">
     <h1>HEAR FROM OUR EXPLORERS</h1>
 
@@ -188,16 +204,14 @@
         <button class="nav-btn left" onclick="prevTestimonial()">&#8592;</button>
 
         <div class="testimonial-content">
-            <p id="quote">
-                "Family, Konkan, Konkan Paryatan - magic mix! We laughed, explored,
-                tasted the Konkan. Three generations, one unforgettable reunion."
-            </p>
-            <h3 id="author">Bhoshle Family, Vengural</h3>
+            <p id="quote"></p>
+            <h3 id="author"></h3>
         </div>
 
         <button class="nav-btn right" onclick="nextTestimonial()">&#8594;</button>
     </div>
 </section>
+
 <section class="testimonials">
     <p class="subtitle">TESTIMONIALS</p>
     <h1>WHAT OUR VISITORS SAY</h1>
