@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Eduventures Vengurla</title>
+    <title>Activities | Eduventures Vengurla</title>
     <link rel="stylesheet" href="Activities.css">
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
-    <div class="logo">EDUVENTURES</div>
+    <div class="logo-box">
+        <img src="logo.png" alt="Eduventures Logo">
+        <span>EDUVENTURES</span>
+    </div>
 
     <nav>
         <ul>
@@ -22,6 +25,79 @@
         </ul>
     </nav>
 </header>
+
+<!-- ================= HERO VIDEO ================= -->
+<section class="hero-video">
+    <video autoplay muted loop playsinline>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1>Vengurla Adventures</h1>
+        <p>Premium Adventure & Educational Experiences</p>
+        <button class="hero-btn" id="exploreBtn">Explore Activities</button>
+    </div>
+</section>
+
+<!-- ================= PAGE TITLE ================= -->
+<section class="page-title">
+    <h2>Our Activities</h2>
+    <p>Experience thrill, nature & learning with Eduventures</p>
+</section>
+
+<!-- ================= ACTIVITIES ================= -->
+<section class="section" id="activities">
+    <div class="activity-grid">
+
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="scuba .jpeg" alt="Scuba Diving">
+            <div class="card-content">
+                <h4>Scuba Diving</h4>
+                <p>Explore marine life near Malvan & Vengurla.</p>
+                <span class="price">₹2,500 / person</span>
+            </div>
+            <button class="btn">Book Now</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="zipline.jpeg" alt="Zip Line">
+            <div class="card-content">
+                <h4>Zip Line</h4>
+                <p>Feel the thrill on a high rope adventure.</p>
+                <span class="price">₹500 / person</span>
+            </div>
+            <button class="btn">Book Now</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="bird.jpeg" alt="Bird Watching">
+            <div class="card-content">
+                <h4>Bird Watching</h4>
+                <p>Learn about coastal bird species with experts.</p>
+                <span class="price">₹600 / person</span>
+            </div>
+            <button class="btn">Book Now</button>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="trakking.jpeg" alt="Trekking">
+            <div class="card-content">
+                <h4>Trekking</h4>
+                <p>Explore jungle trails & historical forts like Redi.</p>
+                <span class="price">₹700 / person</span>
+            </div>
+            <button class="btn">Book Now</button>
+        </div>
+
+    </div>
+</section>
+
 <script src="Activities.js"></script>
 </body>
 </html>

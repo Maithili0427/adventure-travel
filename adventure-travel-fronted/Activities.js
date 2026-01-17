@@ -33,4 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+
+
+    // HERO BUTTON SCROLL
+    const exploreBtn = document.getElementById("exploreBtn");
+    if (exploreBtn) {
+        exploreBtn.addEventListener("click", () => {
+            document.getElementById("activities").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    }
+
 });
