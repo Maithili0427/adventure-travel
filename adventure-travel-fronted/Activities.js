@@ -47,3 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+// ===== BOOK NOW BUTTON FUNCTION (ADD THIS) =====
+function openBooking(activityName) {
+    window.location.href = "booking.html?activity=" + encodeURIComponent(activityName);
+}

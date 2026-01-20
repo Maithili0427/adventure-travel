@@ -29,7 +29,7 @@
 <!-- ================= HERO VIDEO ================= -->
 <section class="hero-video">
     <video autoplay muted loop playsinline>
-        <source src="video.mp4" type="video/mp4">
+        <source src="nature.mp4" type="video/mp4">
     </video>
 
     <div class="hero-overlay"></div>
@@ -51,15 +51,15 @@
 <section class="section" id="activities">
     <div class="activity-grid">
 
-        <!-- Card 1 -->
-        <div class="card">
+                <!-- Card 1 -->
+            <div class="card">
             <img src="scuba .jpeg" alt="Scuba Diving">
             <div class="card-content">
                 <h4>Scuba Diving</h4>
                 <p>Explore marine life near Malvan & Vengurla.</p>
                 <span class="price">₹2,500 / person</span>
             </div>
-            <button class="btn">Book Now</button>
+            <button class="btn" onclick="openBooking('Scuba Diving')">Book Now</button>
         </div>
 
         <!-- Card 2 -->
@@ -70,7 +70,7 @@
                 <p>Feel the thrill on a high rope adventure.</p>
                 <span class="price">₹500 / person</span>
             </div>
-            <button class="btn">Book Now</button>
+            <button class="btn" onclick="openBooking('Zip Line')">Book Now</button>
         </div>
 
         <!-- Card 3 -->
@@ -81,7 +81,7 @@
                 <p>Learn about coastal bird species with experts.</p>
                 <span class="price">₹600 / person</span>
             </div>
-            <button class="btn">Book Now</button>
+            <button class="btn" onclick="openBooking('Bird Watching')">Book Now</button>
         </div>
 
         <!-- Card 4 -->
@@ -92,8 +92,52 @@
                 <p>Explore jungle trails & historical forts like Redi.</p>
                 <span class="price">₹700 / person</span>
             </div>
-            <button class="btn">Book Now</button>
+            <button class="btn" onclick="openBooking('Trekking')">Book Now</button>
         </div>
+
+        <!-- Card 5 -->
+       <div class="card">
+        <img src="group kayaking.jpg" alt="Kayaking">
+        <div class="card-content">
+        <h4>Kayaking</h4>
+        <p>Enjoy calm backwater kayaking experience.</p>
+        <span class="price">₹800 / person</span>
+     </div>
+    <button class="btn" onclick="openBooking('Kayaking')">Book Now</button>
+</div>
+
+        <!-- Class 6 -->
+    <div class="card">
+        <img src="camping.jpg" alt="Camping">
+        <div class="card-content">
+            <h4>Camping & Bonfire</h4>
+            <p>Enjoy an overnight beach or forest camping experience with bonfire and local cuisine.</p>
+            <span class="price">₹1,500 / person</span>
+        </div>
+        <button class="btn" onclick="openBooking('Camping & Bonfire')">Book Now</button>
+    </div>
+
+        <!-- class 7 -->
+    <div class="card">
+        <img src="dolphin.webp" alt="Dolphin Watching">
+        <div class="card-content">
+            <h4>Dolphin Watching</h4>
+            <p>Enjoy an early morning boat safari to spot playful dolphins along the Konkan coast.</p>
+            <span class="price">₹1,000 / person</span>
+        </div>
+        <button class="btn" onclick="openBooking('Dolphin Watching')">Book Now</button>
+    </div>
+ 
+            <!-- class 8 -->
+    <div class="card">
+        <img src="village.webp" alt="Village Experience">
+        <div class="card-content">
+            <h4>Village & Culture Experience</h4>
+            <p>Interact with locals, explore traditional Konkan lifestyle, food, and culture.</p>
+            <span class="price">₹500 / person</span>
+        </div>
+        <button class="btn" onclick="openBooking('Village & Culture Experience')">Book Now</button>
+    </div>
 
     </div>
 </section>
