@@ -25,6 +25,7 @@ window.exploreNow = function () {
 
 
 /* ===== HERO SLIDER + 3D PARALLAX ===== */
+
 const slides = document.querySelectorAll(".slide");
 let heroIndex = 0;
 

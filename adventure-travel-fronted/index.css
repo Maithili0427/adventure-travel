@@ -656,6 +656,7 @@ nav ul li.active {
 }
 
 /* RESPONSIVE */
+
 @media (max-width: 1024px) {
     .team-container {
         gap: 40px;
