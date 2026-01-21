@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Eduventures Vengurla</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Adventures.css">
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ===== HEADER ===== -->
 <header class="navbar">
-    <div class="logo">EDUVENTURES</div>
+    <div class="logo-box">
+        <img src="logo.png" alt="Eduventures Logo">
+        <span>EDUVENTURES</span>
+    </div>
 
     <nav>
         <ul>
@@ -22,6 +25,31 @@
         </ul>
     </nav>
 </header>
+
+<!-- ===== ADVENTURE GROUP SECTION ===== -->
+<section class="select-group">
+    <h1>Choose Your Adventure Group</h1>
+
+    <div class="group-container">
+
+        <div class="group-card" data-page="Children.html">
+            <h2>Children</h2>
+            <p>Fun • Safe • Nature</p>
+        </div>
+
+        <div class="group-card" data-page="Young.html">
+            <h2>Young Persons</h2>
+            <p>Thrill • Energy • Adventure</p>
+        </div>
+
+        <div class="group-card" data-page="Old.html">
+            <h2>Old Persons</h2>
+            <p>Calm • Nature • Relax</p>
+        </div>
+
+    </div>
+</section>
+
 <script src="Adventures.js"></script>
 </body>
 </html>

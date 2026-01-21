@@ -1,5 +1,6 @@
-/* ===== NAVBAR PAGE NAVIGATION ===== */
 document.addEventListener("DOMContentLoaded", () => {
+
+    /* ================= NAVBAR PAGE NAVIGATION ================= */
     const navLinks = document.querySelectorAll("nav ul li");
 
     navLinks.forEach(link => {
@@ -33,4 +34,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+});
+document.addEventListener("DOMContentLoaded", () => {
+
+    const cards = document.querySelectorAll(".group-card");
+
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+            const page = card.getAttribute("data-page");
+            if (page) {
+                window.location.href = page;
+            }
+        });
+    });
+
 });

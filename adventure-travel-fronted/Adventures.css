@@ -5,19 +5,56 @@
     font-family: Arial, sans-serif;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 18px 50px;
-    background: white;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 10;
 }
 
-.logo {
-    font-weight: bold;
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    perspective: 800px;
+}
+
+.logo-box img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    animation: floatLogo 4s ease-in-out infinite;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+    transition: transform 0.5s ease;
+}
+
+.logo-box span {
     font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
     color: #000;
+    transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.logo-box:hover img {
+    transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+}
+
+.logo-box:hover span {
+    transform: translateZ(20px);
+    color: #f2c300;
+}
+
+@keyframes floatLogo {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
 }
 
 nav ul {
@@ -30,8 +67,160 @@ nav ul li {
     cursor: pointer;
     font-weight: 600;
     color: #000;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: #f2c300;
+    transition: width 0.3s ease;
+}
+
+nav ul li:hover {
+    color: #f2c300;
+}
+
+nav ul li:hover::after,
+nav ul li.active::after {
+    width: 100%;
 }
 
 nav ul li.active {
     color: #f2c300;
+}
+
+/* ================= ADVENTURES SECTION ================= */
+
+.select-group {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #b58900, #f8f9fb);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 60px 20px;
+}
+
+.select-group h1 {
+    font-size: 48px;
+    margin-bottom: 60px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(-40px);
+    animation: titleFade 1s ease forwards;
+}
+
+@keyframes titleFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= GROUP CONTAINER ================= */
+.group-container {
+    display: flex;
+    gap: 50px;
+    perspective: 1200px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+/* ================= GROUP CARD ================= */
+.group-card {
+    width: 320px;
+    height: 220px;
+    background: linear-gradient(145deg, #1e3c72, #2a5298);
+    border-radius: 22px;
+    padding: 35px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transform-style: preserve-3d;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+
+    opacity: 0;
+    transform: translateY(60px) scale(0.9);
+    animation: cardLoad 0.8s ease forwards;
+    transition: all 0.4s ease;
+}
+
+.group-card:nth-child(1) { animation-delay: 0.3s; }
+.group-card:nth-child(2) { animation-delay: 0.5s; }
+.group-card:nth-child(3) { animation-delay: 0.7s; }
+
+@keyframes cardLoad {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ================= CARD TEXT ================= */
+.group-card h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    transform: translateZ(40px);
+}
+
+.group-card p {
+    font-size: 16px;
+    opacity: 0.85;
+    transform: translateZ(30px);
+}
+
+/* ================= HOVER EFFECT ================= */
+.group-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 35px 70px rgba(0,0,0,0.7);
+}
+
+/* Glow overlay */
+.group-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.18),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.group-card:hover::after {
+    opacity: 1;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .select-group h1 {
+        font-size: 34px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .group-card {
+        width: 90%;
+        height: auto;
+        padding: 30px 20px;
+    }
 }
