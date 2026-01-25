@@ -292,104 +292,88 @@ nav ul li.active {
     transform: rotateY(180deg);
 }
 
-/* ================= ADDRESS ================= */
-.address {
-    background: linear-gradient(135deg, #ffffff, #f6f6f6);
-    color: rgb(8, 8, 8);
-    padding: 100px 50px;
-    text-align: center;
-}
-/* EMAIL & PHONE COLOR */
-.contact-link {
-    color: #0f356d; /* Blue */
-    text-decoration: none;
-    font-weight: 600;
+.edu-footer {
+    font-family: Arial, sans-serif;
+    color: #fff;
 }
 
-.contact-link:hover {
-    text-decoration: underline;
+/* ===== MAIN POINT SECTION ===== */
+.main-point {
+  background: linear-gradient(135deg, #4d68de, #1b1f3b);
+  padding: 90px 30px;
+  color: #fff;
+  text-align: center;
 }
 
-.address h2 {
-    font-size: 42px;
-    margin-bottom: 15px;
+.main-point-content {
+  max-width: 900px;
+  margin: auto;
 }
 
-.address .location {
-    font-size: 20px;
-    margin-bottom: 25px;
-    color: #f20000;
-    
+/* Heading */
+.main-point h2 {
+  font-size: 2.6rem;
+  margin-bottom: 30px;
+  animation: fadeSlide 1s ease forwards;
 }
 
-.address-details p {
-    font-size: 18px;
-    margin-bottom: 10px;
-    opacity: 0.9;
+/* Bullet Points */
+.main-points {
+  list-style: none;
+  padding: 0;
 }
 
-/* MAP */
-.map-container {
-    margin: 40px auto;
-    max-width: 1100px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+.main-points li {
+  background: rgba(255, 255, 255, 0.12);
+  margin: 12px 0;
+  padding: 16px 22px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  text-align: left;
+  position: relative;
+  animation: fadeSlide 1.2s ease forwards;
+  backdrop-filter: blur(5px);
 }
 
-.map-container iframe {
-    width: 100%;
-    height: 380px;
-    border: none;
+/* Custom Bullet */
+.main-points li::before {
+  content: "✓";
+  color: #f2c300;
+  font-weight: bold;
+  margin-right: 12px;
 }
 
-/* BUTTON */
-.map-btn {
-    margin-top: 25px;
-    padding: 14px 28px;
-    background: transparent;
-    border: 2px solid #f2c300;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+/* Hover Effect */
+.main-points li:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateX(5px);
+  transition: 0.3s;
 }
 
-.map-btn:hover {
-    background: #f2c300;
-    color: #000;
+/* Animation */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .address {
-        padding: 60px 25px;
-    }
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .main-point {
+    padding: 60px 20px;
+  }
 
-    .map-container iframe {
-        height: 260px;
-    }
+  .main-point h2 {
+    font-size: 2rem;
+  }
 
-    .address h2 {
-        font-size: 32px;
-    }
-}
-@media (max-width: 600px) {
-    .address {
-        padding: 60px 20px;
-    }
-
-    .address-details p {
-        font-size: 16px;
-        line-height: 1.6;
-    }
-
-    .map-container iframe {
-        height: 260px;
-    }
-
-    .map-btn {
-        width: 100%;
-        max-width: 280px;
-    }
+  .main-points li {
+    font-size: 1rem;
+    padding: 14px 18px;
+  }
 }

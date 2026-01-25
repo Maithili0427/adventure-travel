@@ -250,6 +250,124 @@ nav ul li.active::after {
     background: #f2c300;
     transform: scale(1.3);
 }
+.edu-footer {
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+/* TOP GREEN STRIP */
+.footer-top {
+    background: #3f5b32;
+    padding: 50px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-top-left h2 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.footer-top-left h3 {
+    color: #f2c300;
+    margin-top: 8px;
+}
+
+.footer-btn {
+    padding: 14px 28px;
+    border: 2px solid #f2c300;
+    color: #f2c300;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.footer-btn:hover {
+    background: #f2c300;
+    color: #000;
+}
+
+/* MAIN FOOTER */
+.footer-main {
+    background: #3e3e3e;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.footer-col a {
+    display: block;
+    color: #cfcfcf;
+    text-decoration: none;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.footer-col a:hover {
+    color: #f2c300;
+}
+
+.address-col h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.address-col p {
+    color: #cfcfcf;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* BOTTOM */
+.footer-bottom {
+    background: #3a3a3a;
+    padding: 25px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.footer-links a {
+    color: #cfcfcf;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-contact span {
+    margin-right: 20px;
+}
+
+.footer-social a {
+    border: 1px solid #777;
+    padding: 8px 10px;
+    border-radius: 50%;
+    margin-left: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* COPYRIGHT */
+.footer-copy {
+    background: #333;
+    text-align: center;
+    padding: 15px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.footer-copy span {
+    color: #f2c300;
+}
 
 /* ================= MOBILE PERFECT ================= */
 @media (max-width: 768px) {
