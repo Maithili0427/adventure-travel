@@ -1,90 +1,59 @@
 <?php
 header("Content-Type: application/json");
-
+require __DIR__ . '/db.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
 require __DIR__ . '/src/PHPMailer.php';
 require __DIR__ . '/src/SMTP.php';
 require __DIR__ . '/src/Exception.php';
-require __DIR__ . '/db.php';
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header("Location: ../index.html");
-    exit();
-}
+if ($_SERVER["REQUEST_METHOD"] !== "POST") { exit(); }
 
-// ===== Sanitize Input =====
-$activity  = trim($_POST['activity'] ?? '');
-$name      = trim($_POST['name'] ?? '');
-$mobile    = trim($_POST['mobile'] ?? '');
+$activity = trim($_POST['activity'] ?? '');
+$name = trim($_POST['name'] ?? '');
+$mobile = trim($_POST['mobile'] ?? '');
 $userEmail = trim($_POST['user_email'] ?? '');
-$location  = trim($_POST['location'] ?? '');
-$date      = trim($_POST['date'] ?? '');
+$location = trim($_POST['location'] ?? '');
+$date = trim($_POST['date'] ?? '');
 
-// ===== Basic Validation =====
-if (
-    empty($activity) || empty($name) || empty($mobile) ||
-    empty($userEmail) || empty($location) || empty($date)
-) {
-    die("All fields are required.");
+if (!$activity || !$name || !$mobile || !$userEmail || !$location || !$date) {
+    echo json_encode(["status"=>"error","message"=>"All fields required"]); exit();
 }
 
+// Insert booking
+$stmt = $conn->prepare("INSERT INTO bookings (activity,name,mobile,email,location,date) VALUES (?,?,?,?,?,?)");
+$stmt->bind_param("ssssss",$activity,$name,$mobile,$userEmail,$location,$date);
+$stmt->execute();
+$booking_id = $conn->insert_id;
+$stmt->close();
+
+// Send email (optional)
 try {
-    // ===== DB INSERT =====
-    $stmt = $conn->prepare(
-        "INSERT INTO bookings (activity, name, mobile, email, location, date)
-         VALUES (?, ?, ?, ?, ?, ?)"
-    );
-    $stmt->bind_param("ssssss", $activity, $name, $mobile, $userEmail, $location, $date);
-    $stmt->execute();
-    $stmt->close();
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->Host='smtp.gmail.com';
+    $mail->SMTPAuth=true;
+    $mail->Username='maithiliparsekar04@gmail.com';
+    $mail->Password='topr evyi teyt ovvh';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port=587;
 
-    // ===== SEND EMAIL (NON-BLOCKING UX) =====
-    try {
-        $mail = new PHPMailer(true);
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'maithiliparsekar04@gmail.com';
-        $mail->Password = 'topr evyi teyt ovvh';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+    $mail->setFrom('maithiliparsekar04@gmail.com','Eduventures');
+    $mail->addAddress('maithiliparsekar04@gmail.com');
+    $mail->addReplyTo($userEmail,$name);
+    $mail->isHTML(true);
+    $mail->Subject='New Booking Received';
+    $mail->Body="<h3>Booking Details</h3>
+        <p>Booking ID: {$booking_id}</p>
+        <p>Activity: {$activity}</p>
+        <p>Name: {$name}</p>
+        <p>Mobile: {$mobile}</p>
+        <p>Email: {$userEmail}</p>
+        <p>Location: {$location}</p>
+        <p>Date: {$date}</p>";
+    $mail->send();
+}catch(Exception $e){}
 
-        $mail->setFrom('maithiliparsekar04@gmail.com', 'Eduventures');
-        $mail->addAddress('maithiliparsekar04@gmail.com'); // Admin
-        $mail->addReplyTo($userEmail, $name);
-
-        // Optional: send copy to user
-        // $mail->addAddress($userEmail);
-
-        $mail->isHTML(true);
-        $mail->Subject = 'New Booking Received - Eduventures';
-        $mail->Body = "
-            <h3>New Booking Details</h3>
-            <p><b>Activity:</b> {$activity}</p>
-            <p><b>Name:</b> {$name}</p>
-            <p><b>Mobile:</b> {$mobile}</p>
-            <p><b>Email:</b> {$userEmail}</p>
-            <p><b>Location:</b> {$location}</p>
-            <p><b>Date:</b> {$date}</p>
-        ";
-
-        $mail->send();
-    } catch (Exception $e) {
-        // Email failed but booking saved – ignore
-    }
-
-    echo json_encode([
-    "status" => "success",
-    "message" => "Booking submitted successfully"
-]);
-exit();
-
-
-} catch (Exception $e) {
-    echo "Booking failed. Please try again later.";
-}
-
+echo json_encode(["status"=>"success","message"=>"Booking submitted successfully","booking_id"=>$booking_id]);
 $conn->close();
 ?>

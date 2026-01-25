@@ -245,7 +245,7 @@ nav ul li.active {
     gap: 40px;
     padding: 100px 50px;
     perspective: 1200px;
-    background: #fefefe;
+    background: linear-gradient(135deg, #238f9d, #fde68a);
 }
 
 .info-card {
@@ -294,10 +294,20 @@ nav ul li.active {
 
 /* ================= ADDRESS ================= */
 .address {
-    background: linear-gradient(135deg, #0f172a, #4d68de);
-    color: white;
+    background: linear-gradient(135deg, #ffffff, #f6f6f6);
+    color: rgb(8, 8, 8);
     padding: 100px 50px;
     text-align: center;
+}
+/* EMAIL & PHONE COLOR */
+.contact-link {
+    color: #0f356d; /* Blue */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
 }
 
 .address h2 {
@@ -308,7 +318,8 @@ nav ul li.active {
 .address .location {
     font-size: 20px;
     margin-bottom: 25px;
-    color: #f2c300;
+    color: #f20000;
+    
 }
 
 .address-details p {
@@ -361,5 +372,24 @@ nav ul li.active {
 
     .address h2 {
         font-size: 32px;
+    }
+}
+@media (max-width: 600px) {
+    .address {
+        padding: 60px 20px;
+    }
+
+    .address-details p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .map-container iframe {
+        height: 260px;
+    }
+
+    .map-btn {
+        width: 100%;
+        max-width: 280px;
     }
 }

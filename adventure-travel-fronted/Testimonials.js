@@ -34,3 +34,44 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.testimonial-track');
+    const cards = document.querySelectorAll('.card');
+    const dots = document.querySelectorAll('.dot');
+    let index = 0;
+
+    function updateSlider() {
+        const cardWidth = cards[0].offsetWidth + 20; // card width + gap
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+        // Active dot only, no effect on card
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    }
+
+    function nextSlide() {
+        index = (index + 1) % cards.length;
+        updateSlider();
+    }
+
+    function prevSlide() {
+        index = (index - 1 + cards.length) % cards.length;
+        updateSlider();
+    }
+
+    // Arrow click
+    document.querySelector('.arrow.left').addEventListener('click', prevSlide);
+    document.querySelector('.arrow.right').addEventListener('click', nextSlide);
+
+    // Dot click
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            index = i;
+            updateSlider();
+        });
+    });
+
+    
+
+    // Initialize
+    updateSlider();
+});

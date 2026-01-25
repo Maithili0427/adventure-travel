@@ -183,7 +183,7 @@ nav ul li.active {
 .hero-content button {
     padding: 14px 35px;
     border: none;
-    background: white;
+    background: #f2c300;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
@@ -677,7 +677,7 @@ nav ul li.active {
 
 .testimonial-section {
     padding: 120px 0;
-    background: #f2c300;;
+    background: #dec14b;
     text-align: center;
 }
 
@@ -685,7 +685,7 @@ nav ul li.active {
     font-size: 48px;
     font-weight: 800;
     letter-spacing: 2px;
-    color: #03180c;
+    color: #060606;
     margin-bottom: 70px;
     text-align: center;
 }
@@ -718,7 +718,7 @@ nav ul li.active {
 .testimonial-content h3 {
     font-size: 18px;
     font-weight: 700;
-    color: #0d2c1a;
+    color: #121212;
 }
 
 /* ARROWS */
@@ -751,163 +751,3 @@ nav ul li.active {
     }
 }
 
-/* ================= Testimonials Section ================= */
-.testimonials {
-    padding: 100px 20px;
-    background: #fbf7ef;
-    text-align: center;
-    font-family: Arial, sans-serif;
-}
-
-.subtitle {
-    letter-spacing: 3px;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.testimonials h1 {
-    font-size: 40px;
-    margin: 0 0 50px;
-    color: #6b3b0a;
-}
-
-/* Wrapper */
-.testimonial-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 35px; /* Gap between cards */
-    overflow: hidden;
-}
-
-/* Track */
-.testimonial-track {
-    display: flex;
-    gap: 35px; /* Gap between cards */
-    transition: transform 0.5s ease;
-}
-
-/* Card */
-.card {
-    background: white;
-    padding: 40px 30px;   /* More breathing space */
-    width: 340px;         /* Slightly wider */
-    min-height: 260px;    /* Uniform height */
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    flex-shrink: 0;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Card hover effect */
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.2);
-    cursor: pointer;
-}
-
-/* Stars */
-.stars {
-    color: #f2c300;
-    margin-bottom: 12px;
-}
-
-/* Text */
-.card p {
-    font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-/* User info */
-.user {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.icon {
-    background: #f2c300;
-    color: black;
-    border-radius: 50%;
-    padding: 7px;
-    font-size: 14px;
-}
-
-.user h4 {
-    margin: 0;
-    font-size: 14px;
-}
-
-.user small {
-    font-size: 12px;
-    color: gray;
-}
-
-/* Arrows */
-.arrow {
-    background: none;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: #6b3b0a;
-    transition: transform 0.3s ease;
-}
-
-.arrow:hover {
-    transform: scale(1.2);
-}
-
-/* Dots */
-.dots {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.dot {
-    height: 10px;
-    width: 10px;
-    background: #ccc;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 5px;
-    transition: all 0.3s ease;
-}
-
-.dot.active {
-    background: #f2c300;
-    transform: scale(1.2);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .testimonial-wrapper {
-        gap: 25px;
-    }
-    .testimonial-track {
-        gap: 25px;
-    }
-    .card {
-        width: 300px;
-        min-height: 240px;
-    }
-}
-
-@media (max-width: 768px) {
-    .testimonial-wrapper {
-        flex-direction: column;
-        gap: 25px;
-    }
-    .testimonial-track {
-        gap: 25px;
-    }
-    .card {
-        width: 90%;
-        min-height: auto;
-    }
-    .arrow {
-        font-size: 24px;
-    }
-}
