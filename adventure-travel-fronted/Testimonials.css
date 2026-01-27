@@ -370,23 +370,66 @@ nav ul li.active::after {
 }
 
 /* ================= MOBILE PERFECT ================= */
+/* ================= MOBILE PERFECT ================= */
 @media (max-width: 768px) {
+
+    .navbar {
+        padding: 14px 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    nav ul {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .testimonials h1 {
+        font-size: 28px;
+        margin-bottom: 35px;
+    }
 
     .testimonial-wrapper {
         flex-direction: column;
+        overflow: visible;
+    }
+
+    .testimonial-track {
+        flex-direction: column;
+        transform: none !important;
     }
 
     .card {
-        width: 90%;
+        width: 100%;
+        max-width: 360px;
+        padding: 30px 22px;
+        min-height: auto;
     }
 
     .card:hover {
         transform: none;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
     }
 
-    .stars,
-    .icon {
-        animation-duration: 5s;
+    .arrow {
+        display: none;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
     }
 }
+

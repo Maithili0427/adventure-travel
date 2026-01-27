@@ -273,11 +273,71 @@ nav ul li.active {
 }
 
 /* MOBILE */
+/* ================= MOBILE PERFECT ================= */
 @media (max-width: 900px) {
+
+    /* NAVBAR */
+    .navbar {
+        padding: 14px 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    nav ul {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav ul li {
+        font-size: 14px;
+    }
+
+    /* CONTACT */
+    .contact-section {
+        padding: 50px 20px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-left,
+    .contact-right {
+        width: 100%;
+    }
+
+    .contact-left h2 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .contact-desc,
+    .contact-info {
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .contact-right {
+        height: 260px;
+    }
+
+    /* FOOTER */
     .footer-top,
     .footer-main,
     .footer-bottom {
         padding: 40px 20px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
     }
 
     .footer-main {
@@ -288,5 +348,11 @@ nav ul li.active {
     .footer-bottom {
         flex-direction: column;
         gap: 15px;
+    }
+
+    .social-icons .icon,
+    .footer-social a {
+        min-width: 44px;
+        min-height: 44px;
     }
 }

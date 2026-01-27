@@ -65,16 +65,20 @@ label {
     color: #333;
 }
 
-input {
+/* INPUT + SELECT (Dropdown Added) */
+input,
+select {
     width: 100%;
     padding: 12px;
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 15px;
     transition: 0.3s;
+    background: #fff;
 }
 
-input:focus {
+input:focus,
+select:focus {
     border-color: #4d68de;
     box-shadow: 0 0 8px rgba(77,104,222,0.3);
     outline: none;
@@ -194,8 +198,17 @@ button[type="submit"]:hover {
 
 /* Responsive */
 @media (max-width: 600px) {
-    .booking-card, .success-card { margin: 10px; }
-    .success-actions { flex-direction: column; }
+    .booking-card,
+    .success-card {
+        margin: 10px;
+    }
+
+    .success-actions {
+        flex-direction: column;
+    }
+
     .success-actions a,
-    .success-actions button { width: 100%; }
+    .success-actions button {
+        width: 100%;
+    }
 }
