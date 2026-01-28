@@ -8,17 +8,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ===== DROPDOWN (LOCATION) SECTION ADDED ===== */
-    const locationField = document.getElementById("location");
+    const locationField = document.getElementById("locationSelect");
     if (locationField && params.get("location")) {
         locationField.value = params.get("location");
     }
     /* ============================================ */
 
+    /* ===== Disable Past Date Selection ===== */
+    const dateField = document.querySelector('input[type="date"]');
+    if (dateField) {
+        const today = new Date().toISOString().split("T")[0];
+        dateField.setAttribute("min", today);
+    }
+    /* ===================================== */
+
     const bookingForm = document.getElementById("bookingForm");
     const bookingWrapper = document.getElementById("bookingWrapper");
+    const submitBtn = bookingForm.querySelector('button[type="submit"]');
 
     bookingForm.addEventListener("submit", function(e) {
         e.preventDefault();
+
+        /* Button loading state */
+        submitBtn.innerText = "Submitting...";
+        submitBtn.disabled = true;
+
         const formData = new FormData(bookingForm);
 
         fetch(bookingForm.action, {
@@ -32,9 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 bookingWrapper.classList.add("success-mode");
             } else {
                 alert(data.message || "Booking failed. Try again.");
+                submitBtn.innerText = "Submit Booking";
+                submitBtn.disabled = false;
             }
         })
-        .catch(() => alert("Server error. Please try again."));
+        .catch(() => {
+            alert("Server error. Please try again.");
+            submitBtn.innerText = "Submit Booking";
+            submitBtn.disabled = false;
+        });
     });
 
 });
