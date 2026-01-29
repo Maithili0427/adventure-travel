@@ -9,7 +9,9 @@ require __DIR__ . '/src/PHPMailer.php';
 require __DIR__ . '/src/SMTP.php';
 require __DIR__ . '/src/Exception.php';
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") { exit(); }
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    exit();
+}
 
 $activity   = trim($_POST['activity'] ?? '');
 $name       = trim($_POST['name'] ?? '');
@@ -92,12 +94,9 @@ try {
 } catch (Exception $e) {
     // Email failure ignored safely
 }
-
 echo json_encode([
     "status" => "success",
     "message" => "Booking submitted successfully",
     "booking_id" => $booking_id
 ]);
-
 $conn->close();
-?>

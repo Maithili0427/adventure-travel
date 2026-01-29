@@ -1,0 +1,24 @@
+# =========================
+# Node / NPM
+# =========================
+node_modules/
+
+# =========================
+# OS / Editor files
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+
+# =========================
+# Backend libraries (DO NOT COMMIT)
+# =========================
+adventure-travel-backend/fpdf.php
+adventure-travel-backend/font/
+adventure-travel-backend/makefont/
+
+# =========================
+# Logs / temp
+# =========================
+*.log
+*.tmp

@@ -1,147 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Activities | Eduventures Vengurla</title>
-    <link rel="stylesheet" href="Activities.css">
-</head>
-<body>
-
-<!-- ================= NAVBAR ================= -->
-<header class="navbar">
-    <div class="logo-box">
-        <img src="logo.png" alt="Eduventures Logo">
+    <link rel="stylesheet" href="Activities.css" />
+  </head>
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+      <div class="logo-box">
+        <img src="logo.png" alt="Eduventures Logo" />
         <span>EDUVENTURES</span>
-    </div>
+      </div>
 
-    <nav>
+      <nav>
         <ul>
-            <li>HOME</li>
-            <li>ABOUT US</li>
-            <li class="active">ACTIVITIES</li>
-            <li>ADVENTURES FOR</li>
-            <li>TESTIMONIALS</li>
-            <li>CONTACT</li>
+          <li>HOME</li>
+          <li>ABOUT US</li>
+          <li class="active">ACTIVITIES</li>
+          <li>ADVENTURES FOR</li>
+          <li>TESTIMONIALS</li>
+          <li>CONTACT</li>
         </ul>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<!-- ================= HERO VIDEO ================= -->
-<section class="hero-video">
-    <video autoplay muted loop playsinline>
-        <source src="nature.mp4" type="video/mp4">
-    </video>
+    <!-- ================= HERO VIDEO ================= -->
+    <section class="hero-video">
+      <video autoplay muted loop playsinline>
+        <source src="nature.mp4" type="video/mp4" />
+      </video>
 
-    <div class="hero-overlay"></div>
+      <div class="hero-overlay"></div>
 
-    <div class="hero-content">
+      <div class="hero-content">
         <h1>Vengurla Adventures</h1>
         <p>Premium Adventure & Educational Experiences</p>
         <button class="hero-btn" id="exploreBtn">Explore Activities</button>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- ================= PAGE TITLE ================= -->
-<section class="page-title">
-    <h2>Our Activities</h2>
-    <p>Experience thrill, nature & learning with Eduventures</p>
-</section>
+    <!-- ================= PAGE TITLE ================= -->
+    <section class="page-title">
+      <h2>Our Activities</h2>
+      <p>Experience thrill, nature & learning with Eduventures</p>
+    </section>
 
-<!-- ================= ACTIVITIES ================= -->
-<section class="section" id="activities">
-    <div class="activity-grid">
-
-                <!-- Card 1 -->
-            <div class="card">
-            <img src="scuba .jpeg" alt="Scuba Diving">
-            <div class="card-content">
-                <h4>Scuba Diving</h4>
-                <p>Explore marine life near Malvan & Vengurla.</p>
-                <span class="price">₹2,500 / person</span>
-            </div>
-            <button class="btn" onclick="openBooking('Scuba Diving')">Book Now</button>
+    <!-- ================= ACTIVITIES ================= -->
+    <section class="section" id="activities">
+      <div class="activity-grid">
+        <!-- Card 1 -->
+        <div class="card">
+          <img src="scuba .jpeg" alt="Scuba Diving" />
+          <div class="card-content">
+            <h4>Scuba Diving</h4>
+            <p>Explore marine life near Malvan & Vengurla.</p>
+            <span class="price">₹2,500 / person</span>
+          </div>
+          <button class="btn" onclick="openBooking('Scuba Diving')">
+            Book Now
+          </button>
         </div>
 
         <!-- Card 2 -->
         <div class="card">
-            <img src="zipline.jpeg" alt="Zip Line">
-            <div class="card-content">
-                <h4>Zip Line</h4>
-                <p>Feel the thrill on a high rope adventure.</p>
-                <span class="price">₹2000 / person</span>
-            </div>
-            <button class="btn" onclick="openBooking('Zip Line')">Book Now</button>
+          <img src="zipline.jpeg" alt="Zip Line" />
+          <div class="card-content">
+            <h4>Zip Line</h4>
+            <p>Feel the thrill on a high rope adventure.</p>
+            <span class="price">₹2000 / person</span>
+          </div>
+          <button class="btn" onclick="openBooking('Zip Line')">
+            Book Now
+          </button>
         </div>
 
         <!-- Card 3 -->
         <div class="card">
-            <img src="bird.jpeg" alt="Bird Watching">
-            <div class="card-content">
-                <h4>Bird Watching</h4>
-                <p>Learn about coastal bird species with experts.</p>
-                <span class="price">₹1000 / person</span>
-            </div>
-            <button class="btn" onclick="openBooking('Bird Watching')">Book Now</button>
+          <img src="bird.jpeg" alt="Bird Watching" />
+          <div class="card-content">
+            <h4>Bird Watching</h4>
+            <p>Learn about coastal bird species with experts.</p>
+            <span class="price">₹1000 / person</span>
+          </div>
+          <button class="btn" onclick="openBooking('Bird Watching')">
+            Book Now
+          </button>
         </div>
 
         <!-- Card 4 -->
         <div class="card">
-            <img src="trakking.jpeg" alt="Trekking">
-            <div class="card-content">
-                <h4>Trekking</h4>
-                <p>Explore jungle trails & historical forts like Redi.</p>
-                <span class="price">₹1500 / person</span>
-            </div>
-            <button class="btn" onclick="openBooking('Trekking')">Book Now</button>
+          <img src="trakking.jpeg" alt="Trekking" />
+          <div class="card-content">
+            <h4>Trekking</h4>
+            <p>Explore jungle trails & historical forts like Redi.</p>
+            <span class="price">₹1500 / person</span>
+          </div>
+          <button class="btn" onclick="openBooking('Trekking')">
+            Book Now
+          </button>
         </div>
 
         <!-- Card 5 -->
-       <div class="card">
-        <img src="group kayaking.jpg" alt="Kayaking">
-        <div class="card-content">
-        <h4>Kayaking</h4>
-        <p>Enjoy calm backwater kayaking experience.</p>
-        <span class="price">₹1000 / person</span>
-     </div>
-    <button class="btn" onclick="openBooking('Kayaking')">Book Now</button>
-</div>
+        <div class="card">
+          <img src="group kayaking.jpg" alt="Kayaking" />
+          <div class="card-content">
+            <h4>Kayaking</h4>
+            <p>Enjoy calm backwater kayaking experience.</p>
+            <span class="price">₹1000 / person</span>
+          </div>
+          <button class="btn" onclick="openBooking('Kayaking')">
+            Book Now
+          </button>
+        </div>
 
         <!-- Class 6 -->
-    <div class="card">
-        <img src="camping.jpg" alt="Camping">
-        <div class="card-content">
+        <div class="card">
+          <img src="camping.jpg" alt="Camping" />
+          <div class="card-content">
             <h4>Camping & Bonfire</h4>
-            <p>Enjoy an overnight beach or forest camping experience with bonfire and local cuisine.</p>
+            <p>
+              Enjoy an overnight beach or forest camping experience with bonfire
+              and local cuisine.
+            </p>
             <span class="price">₹1,500 / person</span>
+          </div>
+          <button class="btn" onclick="openBooking('Camping & Bonfire')">
+            Book Now
+          </button>
         </div>
-        <button class="btn" onclick="openBooking('Camping & Bonfire')">Book Now</button>
-    </div>
 
         <!-- class 7 -->
-    <div class="card">
-        <img src="dolphin.webp" alt="Dolphin Watching">
-        <div class="card-content">
+        <div class="card">
+          <img src="dolphin.webp" alt="Dolphin Watching" />
+          <div class="card-content">
             <h4>Dolphin Watching</h4>
-            <p>Enjoy an early morning boat safari to spot playful dolphins along the Konkan coast.</p>
+            <p>
+              Enjoy an early morning boat safari to spot playful dolphins along
+              the Konkan coast.
+            </p>
             <span class="price">₹1,000 / person</span>
+          </div>
+          <button class="btn" onclick="openBooking('Dolphin Watching')">
+            Book Now
+          </button>
         </div>
-        <button class="btn" onclick="openBooking('Dolphin Watching')">Book Now</button>
-    </div>
- 
-            <!-- class 8 -->
-    <div class="card">
-        <img src="village.webp" alt="Village Experience">
-        <div class="card-content">
+
+        <!-- class 8 -->
+        <div class="card">
+          <img src="village.webp" alt="Village Experience" />
+          <div class="card-content">
             <h4>Village & Culture Experience</h4>
-            <p>Interact with locals, explore traditional Konkan lifestyle, food, and culture.</p>
+            <p>
+              Interact with locals, explore traditional Konkan lifestyle, food,
+              and culture.
+            </p>
             <span class="price">₹1000 / person</span>
+          </div>
+          <button
+            class="btn"
+            onclick="openBooking('Village & Culture Experience')"
+          >
+            Book Now
+          </button>
         </div>
-        <button class="btn" onclick="openBooking('Village & Culture Experience')">Book Now</button>
-    </div>
+      </div>
+    </section>
 
-    </div>
-</section>
-
-<script src="Activities.js"></script>
-</body>
+    <script src="Activities.js"></script>
+  </body>
 </html>
