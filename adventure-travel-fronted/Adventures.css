@@ -107,7 +107,8 @@ nav ul li.active {
 
 .select-group {
   min-height: 100vh;
-  background: linear-gradient(135deg, #b58900, #f8f9fb);
+  background: linear-gradient(to bottom, #f2c300, #ffffff);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -119,7 +120,7 @@ nav ul li.active {
 .select-group h1 {
   font-size: 48px;
   margin-bottom: 60px;
-  color: #ffffff;
+  color: #6b3b0a;;
   letter-spacing: 1px;
   opacity: 0;
   transform: translateY(-40px);
@@ -147,7 +148,7 @@ nav ul li.active {
 .group-card {
   width: 320px;
   height: 220px;
-  background: linear-gradient(145deg, #1e3c72, #2a5298);
+  background: linear-gradient(#3f5b32);
   border-radius: 22px;
   padding: 35px;
   text-align: center;

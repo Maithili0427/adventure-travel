@@ -7,7 +7,8 @@
 }
 
 body {
-  background: linear-gradient(135deg, #4d68de, #edeef2);
+  background: linear-gradient(to bottom, #f2c300, #ffffff);
+
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -35,7 +36,7 @@ body {
 }
 
 .booking-header {
-  background: #4d68de;
+  background: linear-gradient(#3f5b32);
   color: #fff;
   padding: 25px;
   text-align: center;
@@ -88,8 +89,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: #4d68de;
-  box-shadow: 0 0 8px rgba(77, 104, 222, 0.3);
+  border-color: #111111;
+  box-shadow: 0 0 8px rgba(22, 22, 23, 0.3);
   outline: none;
 }
 
@@ -106,7 +107,7 @@ select {
 button[type='submit'] {
   width: 100%;
   padding: 15px;
-  background: #4d68de;
+  background: linear-gradient(#3f5b32);
   color: #fff;
   border: none;
   font-size: 16px;
@@ -118,7 +119,7 @@ button[type='submit'] {
 
 /* Hover */
 button[type='submit']:hover {
-  background: #3949ab;
+  background: linear-gradient(#3f5b32);
 }
 
 /* Disabled / Loading State */

@@ -111,7 +111,7 @@ nav ul li.active {
 
 /* HERO */
 .hero {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background: linear-gradient(#3f5b32);
   color: #fff;
   padding: 110px 20px;
   text-align: center;
@@ -158,14 +158,14 @@ nav ul li.active {
 .why-shape h2 {
   font-size: 36px;
   margin-bottom: 22px;
-  color: #1e3c72;
+  color: #030303;
 }
 
 .why-shape p {
   font-size: 17px;
   line-height: 1.7;
   margin-bottom: 28px;
-  color: #333;
+  color: #121111;
 }
 
 /* PERFECT CENTER POINTS */
@@ -180,8 +180,9 @@ nav ul li.active {
 .why-shape li {
   font-size: 16px;
   margin: 14px 0;
-  color: #222;
+  color: #0b0b0b;
 
+  
   display: grid;
   grid-template-columns: 22px auto; /* FIXED TICK COLUMN */
   column-gap: 12px;
@@ -197,7 +198,7 @@ nav ul li.active {
 /* TICK */
 .why-shape li::before {
   content: '✔';
-  color: #1e3c72;
+  color: #09090a;
   font-weight: bold;
   text-align: center;
 }
@@ -272,7 +273,7 @@ nav ul li.active {
 .info-box h2 {
   font-size: 36px;
   margin-bottom: 18px;
-  color: #1e3c72;
+  color: #060606;
 }
 
 .info-box p {
@@ -284,7 +285,7 @@ nav ul li.active {
 .age {
   font-size: 17px;
   font-weight: 700;
-  color: #2a5298;
+  color: #070707;
 }
 
 /* HOVER */
@@ -320,7 +321,7 @@ nav ul li.active {
 
 /* BOOK NOW */
 .book-now {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background: linear-gradient(#3f5b32);
   color: #fff;
   padding: 80px 20px;
   text-align: center;

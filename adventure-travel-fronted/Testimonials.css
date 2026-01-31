@@ -103,7 +103,7 @@ nav ul li.active::after {
 /* ================= TESTIMONIALS ================= */
 .testimonials {
   padding: 110px 20px;
-  background: linear-gradient(135deg, #b58900, #f8f9fb);
+  background: linear-gradient(to bottom, #f2c300, #ffffff);
   text-align: center;
   animation: sectionFade 1.2s ease forwards;
 }
@@ -391,7 +391,7 @@ nav ul li.active::after {
   color: #f2c300;
 }
 
-/* ================= MOBILE PERFECT ================= */
+
 /* ================= MOBILE PERFECT ================= */
 @media (max-width: 768px) {
   .navbar {

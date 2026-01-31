@@ -240,59 +240,81 @@ nav ul li.active {
   gap: 60px;
 }
 
-/* IMAGE BOX */
-.image-box {
+/* ===== IMAGE BOX ===== */
+.image-box{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1200px; /* depth for 3D */
+  perspective: 1200px;
 }
 
-/* 3D WRAPPER */
-.image-3d {
+/* ===== SIDE SWIRL / RANGOLI DESIGN ===== */
+.image-box::before,
+.image-box::after{
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 5px solid #e7d9a8;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.image-box::before{
+  left: -50px;
+  bottom: 40px;
+  border-top: none;
+  border-right: none;
+}
+
+.image-box::after{
+  right: -50px;
+  top: 40px;
+  border-bottom: none;
+  border-left: none;
+}
+
+/* ===== 3D IMAGE WRAPPER ===== */
+.image-3d{
   width: 460px;
-  height: 400px; /* perfect hexagon height for given width */
+  height: 320px;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* smooth slide */
-  border: 4px solid #f2c300; /* side border */
-  border-radius: 20px; /* rounded corners */
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); /* main shadow */
+  transition: transform 1s cubic-bezier(0.68,-0.55,0.27,1.55);
 }
 
-/* BOTH IMAGES */
-.image-3d img {
+/* ===== BOTH IMAGES (OVAL CUT) ===== */
+.image-3d img{
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
 
-  /* Perfect symmetrical hexagon */
-  clip-path: circle(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  border-radius: 50% / 45%;   /* OVAL SHAPE */
 
   backface-visibility: hidden;
-  border-radius: 20px; /* same as wrapper */
 
   box-shadow:
-    0 35px 55px rgba(0, 0, 0, 0.45),
-    0 10px 25px rgba(0, 0, 0, 0.25);
+    0 35px 55px rgba(0,0,0,0.45),
+    0 10px 25px rgba(0,0,0,0.25);
 }
 
-/* FRONT IMAGE */
-.image-3d .front {
+/* ===== FRONT & BACK ===== */
+.image-3d .front{
   transform: rotateY(0deg);
 }
 
-/* BACK IMAGE */
-.image-3d .back {
+.image-3d .back{
   transform: rotateY(180deg);
 }
 
-/* HOVER FLIP + slight slide */
-.image-box:hover .image-3d {
-  transform: rotateY(180deg) translateX(15px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5); /* bigger shadow on hover */
+/* ===== HOVER FLIP ===== */
+.image-box:hover .image-3d{
+  transform: rotateY(180deg);
 }
+
 
 /* TEXT */
 .text-box {
@@ -564,7 +586,7 @@ nav ul li.active {
   max-width: 520px;
   border-radius: 22px;
   object-fit: cover;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+
 }
 
 /* RESPONSIVE */
@@ -651,7 +673,7 @@ nav ul li.active {
 .team-image {
   flex: 1 1 500px;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 0; /* removed shape */
   opacity: 0; /* hidden initially for animation */
   transform: translateX(50px); /* slide from right */
   transition: all 0.8s ease-out;
@@ -665,20 +687,17 @@ nav ul li.active {
 .team-image img {
   width: 100%;
   display: block;
-  border-radius: 15px;
-  transition:
-    transform 0.5s ease,
-    box-shadow 0.5s ease;
+  border-radius: 0; /* remove rounding */
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* Image hover zoom + shadow */
+/* Image hover zoom + shadow (optional, shadow removed if you want flat) */
 .team-image img:hover {
   transform: scale(1.05);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: none; /* remove shadow if you want completely flat */
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 1024px) {
   .team-container {
     gap: 40px;

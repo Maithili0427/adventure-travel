@@ -211,7 +211,7 @@ nav ul li.active {
 .travel-content {
   max-width: 900px;
   margin: auto;
-  background: #fff9f0;
+  background: linear-gradient(135deg,  #fde68a , #fff7ed);
   border-radius: 20px;
   padding: 50px 40px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
@@ -224,7 +224,7 @@ nav ul li.active {
 .travel-content h2 {
   font-size: 42px;
   margin-bottom: 20px;
-  color: #333;
+  color: #0f0f0f;
   animation: headingFloat 4s ease-in-out infinite alternate;
 }
 
@@ -233,7 +233,7 @@ nav ul li.active {
   line-height: 1.8;
   font-size: 17px;
   margin-bottom: 15px;
-  color: #444;
+  color: #161515;
   opacity: 0.95;
   animation: paraFloat 5s ease-in-out infinite alternate;
 }
@@ -289,7 +289,7 @@ nav ul li.active {
   gap: 40px;
   padding: 100px 50px;
   perspective: 1200px;
-  background: linear-gradient(135deg, #238f9d, #fde68a);
+  background: linear-gradient(white);
 }
 
 .info-card {
@@ -332,8 +332,8 @@ nav ul li.active {
 }
 
 .card-back {
-  background: #3f5b32;
-  color: #efeaea;
+  background: #f2c300;
+  color: #090909;
   transform: rotateY(180deg);
 }
 
@@ -344,9 +344,9 @@ nav ul li.active {
 
 /* ===== MAIN POINT SECTION ===== */
 .main-point {
-  background: linear-gradient(135deg, #4d68de, #1b1f3b);
+  background: linear-gradient(#3f5b32);
   padding: 90px 30px;
-  color: #fff;
+  color: #f2e5e5;
   text-align: center;
 }
 
@@ -383,7 +383,7 @@ nav ul li.active {
 /* Custom Bullet */
 .main-points li::before {
   content: '✓';
-  color: #f2c300;
+  color: #f4f1f1;
   font-weight: bold;
   margin-right: 12px;
 }
